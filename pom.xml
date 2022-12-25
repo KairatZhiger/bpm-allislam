@@ -48,27 +48,31 @@
     </dependencies>
     <modules>
         <module>bpm-app-auth</module>
+        <module>bpm-test</module>
+        <module>bpm-app-page</module>
+        <module>bpm-app-page</module>
+        <module>bpm-lib-page</module>
     </modules>
-<profiles>
-    <profile>
-        <id>test</id>
-        <properties>
-            <actiatedProperties>test</actiatedProperties>
-        </properties>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-    </profile>
-    <profile>
-        <id>prom</id>
-        <properties>
-            <actiatedProperties>prom</actiatedProperties>
-        </properties>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-    </profile>
-</profiles>
+<!--<profiles>-->
+<!--    <profile>-->
+<!--        <id>test</id>-->
+<!--        <properties>-->
+<!--            <activatedProperties>test</activatedProperties>-->
+<!--        </properties>-->
+<!--        <activation>-->
+<!--            <activeByDefault>true</activeByDefault>-->
+<!--        </activation>-->
+<!--    </profile>-->
+<!--    <profile>-->
+<!--        <id>prom</id>-->
+<!--        <properties>-->
+<!--            <activatedProperties>prom</activatedProperties>-->
+<!--        </properties>-->
+<!--        <activation>-->
+<!--            <activeByDefault>true</activeByDefault>-->
+<!--        </activation>-->
+<!--    </profile>-->
+<!--</profiles>-->
     <dependencyManagement>
         <dependencies>
             <dependency>

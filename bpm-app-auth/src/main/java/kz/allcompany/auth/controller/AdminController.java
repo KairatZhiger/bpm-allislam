@@ -1,38 +1,43 @@
 package kz.allcompany.auth.controller;
 
+
+import kz.allcompany.auth.dto.AdminUserDto;
+import kz.allcompany.auth.entity.User;
 import kz.allcompany.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+/**
+ * Created By Kairat Zhiger
+ * at 13.12.2022
+ */
+
+@RestController
+@RequestMapping(value = "/api/v1/admin/")
 public class AdminController {
+
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
-
-    @GetMapping("/admin")
-    public String userList(Model model) {
-        model.addAttribute("allUsers", userService.allUsers());
-        return "admin";
+    public AdminController(UserService userService) {
+        this.userService = userService;
     }
 
-    @PostMapping("/admin")
-    public String  deleteUser(@RequestParam(required = true, defaultValue = "" ) Long userId,
-                              @RequestParam(required = true, defaultValue = "" ) String action,
-                              Model model) {
-        if (action.equals("delete")){
-            userService.deleteUser(userId);
+    @GetMapping(value = "users/{id}")
+    public ResponseEntity<AdminUserDto> getUserById(@PathVariable(name = "id") Long id) {
+        User user = userService.findById(id);
+
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return "redirect:/admin";
-    }
 
-    @GetMapping("/admin/gt/{userId}")
-    public String  gtUser(@PathVariable("userId") Long userId, Model model) {
-        model.addAttribute("allUsers", userService.usergtList(userId));
-        return "admin";
+        AdminUserDto result = AdminUserDto.fromUser(user);
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

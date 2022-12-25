@@ -1,57 +1,29 @@
 package kz.allcompany.auth.entity;
 
-import org.springframework.security.core.GrantedAuthority;
+import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
+/**
+ * Created By Kairat Zhiger
+ * at 13.12.2022
+ */
 @Entity
-@Table(name = "t_role")
-public class Role implements GrantedAuthority {
-    @Id
-    private Long id;
+@Table(name = "roles")
+@Data
+public class Role extends BaseEntity {
+
+    @Column(name = "name")
     private String name;
-    @Transient
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
-    public Role() {
-    }
 
-    public Role(Long id) {
-        this.id = id;
-    }
-
-    public Role(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    private List<User> users;
 
     @Override
-    public String getAuthority() {
-        return getName();
+    public String toString() {
+        return "Role{" +
+                "id: " + super.getId() + ", " +
+                "name: " + name + "}";
     }
 }
