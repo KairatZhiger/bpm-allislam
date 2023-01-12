@@ -7,7 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="kz.allxompany.test" />
+        <module name="bpm-app-task" />
+        <module name="bpm-lib-common" />
         <module name="bpm-app-auth" />
         <module name="bpm-app-page" />
         <module name="bpm-lib-page" />
@@ -15,6 +16,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bpm-page-mvc" target="8" />
+      <module name="kz.allxompany.test" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -22,6 +24,8 @@
       <module name="bpm" options="-parameters" />
       <module name="bpm-app-auth" options="-parameters" />
       <module name="bpm-app-page" options="-parameters" />
+      <module name="bpm-app-task" options="-parameters" />
+      <module name="bpm-lib-common" options="-parameters" />
       <module name="bpm-lib-page" options="-parameters" />
       <module name="bpm-page-mvc" options="-parameters" />
       <module name="kz.allxompany.test" options="-parameters" />

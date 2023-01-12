@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
 /**
  * Created By Kairat Zhiger
  * at 24.12.2022
@@ -17,7 +19,7 @@ import org.springframework.stereotype.Service;
 public class PageServiceImpl implements PageService {
 
     private final PServiceRepository pServiceRepository;
-    @Value("${app.logo.main-page-logo}")
+    @Value("${app.main-logo-path}")
     private String mainLogo;
 
     @Override
@@ -25,7 +27,7 @@ public class PageServiceImpl implements PageService {
         return PServiceRs.builder()
                 .logoPath(mainLogo)
                 .note("")
-                .services(pServiceRepository.findAll().stream().peek(pService -> ))
+                .services(pServiceRepository.findAll().stream().peek(pService -> pService.setName(LanguageUtils.languageHandler(pService.getName(),language))).collect(Collectors.toList()))
                 .build();
 
     }

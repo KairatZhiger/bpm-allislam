@@ -1,23 +1,19 @@
-package kz.allcompany.test;
+package kz.allcompany.task;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.annotation.PostConstruct;
 
 /**
  * Created By Kairat Zhiger
  * at 24.12.2022
  */
+
 @SpringBootApplication
-public class BpmTest {
+public class TaskApp {
 
-    @PostConstruct
-    void test(){
-
-    }
     public static void main(String[] args) {
 
-        SpringApplication.run(BpmTest.class,args);
+        SpringApplication.run(TaskApp.class, args);
     }
+
 }

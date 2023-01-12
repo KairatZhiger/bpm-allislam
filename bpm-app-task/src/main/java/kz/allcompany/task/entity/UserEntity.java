@@ -1,8 +1,7 @@
-package kz.allcompany.auth.entity;
+package kz.allcompany.task.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import kz.allcompany.auth.enums.Status;
-import kz.allcompany.page.lib.db.UserBase;
+import kz.allcompany.page.lib.enums.UserStatus;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -18,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @Data
-public class User extends UserBase {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,11 +33,23 @@ public class User extends UserBase {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private Status status;
+    private UserStatus status;
 
     @Column(name = "password")
     @JsonIgnore
     private String password;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "email")
+    private String email;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
