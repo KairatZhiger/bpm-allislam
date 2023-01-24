@@ -1,6 +1,7 @@
 package kz.allcompany.task.service;
 
 import kz.allcompany.task.dto.IOTask;
+import kz.allcompany.task.entity.TaskEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -14,4 +15,6 @@ public interface TaskService
 {
     Page<IOTask> getTaskIncome(Locale locale, PageRequest page, Long clientId);
     Page<IOTask> getTaskOutCome(Locale locale, PageRequest page, Long clientId);
+
+    TaskEntity createTask(TaskEntity taskEntity, Long clientId);
 }

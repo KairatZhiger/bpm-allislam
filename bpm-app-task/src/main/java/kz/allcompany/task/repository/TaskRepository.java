@@ -12,9 +12,6 @@ import java.util.List;
  */
 @Repository
 public interface TaskRepository extends CrudRepository<TaskEntity,Long> {
-
-
-
-   List<TaskEntity> findBy(Long aLong);
-
+        List<TaskEntity> findTaskEntitiesByCreateAuthorId(Long id);
+        List<TaskEntity> findTaskEntitiesByExecutorId(Long id);
 }

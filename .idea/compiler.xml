@@ -21,7 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="bpm" options="-parameters" />
+      <module name="bpm" options="" />
       <module name="bpm-app-auth" options="-parameters" />
       <module name="bpm-app-page" options="-parameters" />
       <module name="bpm-app-task" options="-parameters" />

@@ -1,6 +1,5 @@
 package kz.allcompany.page.repository;
 
-import kz.allcompany.page.entity.TaskEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

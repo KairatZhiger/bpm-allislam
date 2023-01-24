@@ -8,7 +8,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.Set;
 
 /**
  * Created By Kairat Zhiger
@@ -24,14 +23,14 @@ public class TaskEntity {
     private Long id;
 
     /**Создатель задачи*/
-    @OneToMany
+    @OneToOne
     private UserEntity createAuthor;
     /***/
-    @OneToMany
+    @OneToOne
     private UserEntity modifyUser;
 
     /**Исполнитель*/
-    @OneToMany
+    @OneToOne
     private UserEntity executor;
 
     private LocalDateTime startWorkDate;
@@ -44,13 +43,14 @@ public class TaskEntity {
 
     @CreatedDate
     @Column(name = "created")
-    private Date created;
+    private LocalDateTime created;
 
     @LastModifiedDate
     @Column(name = "updated")
     private Date updated;
-    @ManyToMany(mappedBy = "id",fetch = FetchType.EAGER)
-    private Set<UserEntity> coExecutor;
+//    @ManyToMany(mappedBy = "id",fetch = FetchType.EAGER)
+//
+//    private Set<UserEntity> coExecutor;
 
 
 }
