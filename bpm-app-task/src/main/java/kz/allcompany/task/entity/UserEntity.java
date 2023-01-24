@@ -31,7 +31,7 @@ public class UserEntity {
     @Column(name = "updated")
     private Date updated;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "status")
     private UserStatus status;
 

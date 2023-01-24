@@ -2,7 +2,6 @@ package kz.allcompany.auth.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import kz.allcompany.auth.enums.Status;
-import kz.allcompany.page.lib.db.UserBase;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -18,12 +17,16 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @Data
-public class User extends UserBase {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "username")
+    private String userName;
+    private String firstName;
+    private String lastName;
+    private String email;
     @CreatedDate
     @Column(name = "created")
     private Date created;

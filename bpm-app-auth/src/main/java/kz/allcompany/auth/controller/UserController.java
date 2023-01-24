@@ -47,7 +47,7 @@ public class UserController {
     public User init() {
         var user = new User();
         user.setStatus(Status.ACTIVE);
-        user.setUsername("u12633");
+        user.setUserName("u12633");
         user.setEmail("sherizatk@gmail.com");
         user.setFirstName("Zhiger");
         user.setLastName("Kairat");

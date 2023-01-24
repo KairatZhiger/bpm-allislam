@@ -1,21 +1,21 @@
 server:
-  port: 8075
+  port: 8080
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://185.22.66.48:5432/core
+    username: webadmin
+    password: IMHirb49861
   jpa:
     show-sql: true
     generate-ddl: false
     ddl-auto: update
-  liquibase:
-    change-log: classpath:liquibase/db.changelog-master.xml
-    url: jdbc:postgresql://localhost:5432/postgres
-    user: postgres
-    password: postgres
-    enabled: false
+#  liquibase:
+#    change-log: classpath:liquibase/db.changelog-master.xml
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    user: postgres
+#    password: postgres
+#    enabled: false
 
 jwt:
   token:
