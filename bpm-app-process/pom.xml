@@ -2,51 +2,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>kz.allcompany.bpm</groupId>
-    <artifactId>bpm-app-auth</artifactId>
-    <version>1.0.0</version>
-
     <parent>
-        <groupId>kz.allcompany.bpm</groupId>
         <artifactId>bpm</artifactId>
+        <groupId>kz.allcompany.bpm</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>bpm-app-process</artifactId>
     <dependencies>
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Liquibase -->
-<!--        <dependency>-->
-<!--            <groupId>org.liquibase</groupId>-->
-<!--            <artifactId>liquibase-core</artifactId>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-
-        <!-- JSON Web Token lib -->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>${jsonwebtoken.version}</version>
         </dependency>
 
 
@@ -57,9 +36,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
+            <groupId>kz.allcompany.bpm</groupId>
+            <artifactId>bpm-lib-page</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>kz.allcompany.bpm</groupId>
@@ -67,23 +47,13 @@
             <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-        </dependency>
+
     </dependencies>
+
 
     <properties>
         <java.version>15</java.version>
-        <jsonwebtoken.version>0.8.0</jsonwebtoken.version>
-
-        <!--        <maven.compliler.source>15</maven.compliler.source>-->
-<!--        <maven.compliler.target>15</maven.compliler.target>-->
-        <deploymentName>auth</deploymentName>
+        <deploymentName>task</deploymentName>
     </properties>
 
     <build>
@@ -94,5 +64,7 @@
             </plugin>
         </plugins>
     </build>
+
+
 
 </project>

@@ -1,8 +1,8 @@
-package kz.allcompany.task.controller;
+package kz.allcompany.process.controller;
 
-import kz.allcompany.task.dto.IOTask;
-import kz.allcompany.task.entity.TaskEntity;
-import kz.allcompany.task.service.TaskService;
+import kz.allcompany.process.dto.IOProcess;
+import kz.allcompany.process.entity.ProcessEntity;
+import kz.allcompany.process.service.ProcessService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,24 +17,25 @@ import java.util.Locale;
 @RestController
 @RequestMapping(value = "/v1/task")
 @RequiredArgsConstructor
-public class TaskController {
+public class ProcessController {
 
-    private final TaskService taskService;
+    private final ProcessService processService;
 
 
     @PostMapping("/create")
-public TaskEntity getIncomes(
+    public ProcessEntity getIncomes(
             Locale locale,
             @RequestHeader("user-iin") String iin,
             @RequestParam("clientId") Long clientId,
-            @RequestBody TaskEntity taskEntity
+            @RequestBody ProcessEntity taskEntity
 
             ){
-        return taskService.createTask(taskEntity,clientId);
+
+        return processService.createProcess(taskEntity,clientId);
     }
 
     @GetMapping("/income")
-    public Page<IOTask> getIncomes(
+    public Page<IOProcess> getIncomes(
             Locale locale,
             @RequestHeader("user-iin") String iin,
             @RequestParam("clientId") Long clientId,
@@ -42,11 +43,12 @@ public TaskEntity getIncomes(
             @RequestParam("page") int page
 
             ){
-        return taskService.getTaskIncome(locale, PageRequest.of(page, size),clientId);
+
+        return processService.getProcessIncome(locale, PageRequest.of(page, size),clientId);
     }
 
     @GetMapping("/outcome")
-    public Page<IOTask> getOutcomes(
+    public Page<IOProcess> getOutcomes(
             Locale locale,
             @RequestHeader("user-iin") String iin,
             @RequestParam("clientId") Long clientId,
@@ -55,6 +57,6 @@ public TaskEntity getIncomes(
 
     ){
 
-        return taskService.getTaskOutCome(locale, PageRequest.of(page, size),clientId);
+        return processService.getProcessOutCome(locale, PageRequest.of(page, size),clientId);
     }
 }

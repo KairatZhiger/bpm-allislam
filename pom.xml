@@ -49,6 +49,7 @@
     <modules>
         <module>bpm-app-auth</module>
         <module>bpm-app-page</module>
+        <module>bpm-app-process</module>
         <module>bpm-app-task</module>
         <module>bpm-lib-page</module>
         <module>bpm-lib-common</module>

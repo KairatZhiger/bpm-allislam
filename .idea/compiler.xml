@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="bpm-app-task" />
         <module name="bpm-lib-common" />
+        <module name="bpm-app-process" />
         <module name="bpm-app-auth" />
         <module name="bpm-app-page" />
         <module name="bpm-lib-page" />
@@ -24,6 +25,7 @@
       <module name="bpm" options="" />
       <module name="bpm-app-auth" options="-parameters" />
       <module name="bpm-app-page" options="-parameters" />
+      <module name="bpm-app-process" options="-parameters" />
       <module name="bpm-app-task" options="-parameters" />
       <module name="bpm-lib-common" options="-parameters" />
       <module name="bpm-lib-page" options="-parameters" />

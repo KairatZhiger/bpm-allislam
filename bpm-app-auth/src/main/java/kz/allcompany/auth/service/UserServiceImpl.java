@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
         var userRoles= Collections.singletonList(roleRepository.findByName("ROLE_USER"));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(userRoles);
+        //user.setRoles(userRoles);
         user.setStatus(Status.ACTIVE);
 
         User registeredUser = userRepository.save(user);

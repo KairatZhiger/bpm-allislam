@@ -1,0 +1,15 @@
+server:
+  port: 8075
+
+app:
+    main-logo-path: /bpm/page/main-logo.png
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    ddl-auto: update

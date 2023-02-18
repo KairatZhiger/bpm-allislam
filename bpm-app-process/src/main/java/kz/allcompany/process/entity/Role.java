@@ -1,4 +1,4 @@
-package kz.allcompany.auth.entity;
+package kz.allcompany.process.entity;
 
 import lombok.Data;
 
@@ -10,19 +10,19 @@ import java.util.List;
  * at 13.12.2022
  */
 @Entity
-@Table(name = "role")
+@Table(name = "roles")
 @Data
-public class Role{
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "role_id", insertable = false, updatable = false)
-    private  List<User> users;
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    private List<UserEntity> users;
 
     @Override
     public String toString() {
