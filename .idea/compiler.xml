@@ -16,8 +16,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bpm-app-core" target="15" />
       <module name="bpm-page-mvc" target="8" />
-      <module name="kz.allxompany.test" target="8" />
+      <module name="kz.allxompany.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
